@@ -8,6 +8,7 @@ import Root from './components/root/Root.jsx';
 import Home from './pages/Home/Home.jsx';
 import Apps from './pages/Apps/Apps.jsx';
 import Installation from './pages/Installation/Installation.jsx';
+import CardDetails from './components/CardDetails/CardDetails.jsx';
 
 const router = createBrowserRouter([
   {
@@ -28,6 +29,10 @@ const router = createBrowserRouter([
       {
         path: 'installation',
         Component: Installation
+      },
+      {
+        path:'cardDetais/:Id',
+        Component:CardDetails
       }
     ]
   }

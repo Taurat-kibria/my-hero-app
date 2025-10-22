@@ -2,6 +2,7 @@ import React from 'react';
 import { IoMdDownload } from 'react-icons/io';
 import downloadImg from '../../assets/icon-downloads.png'
 import starImg from '../../assets/icon-ratings.png'
+import { Link } from 'react-router';
 
 
 
@@ -24,32 +25,34 @@ import starImg from '../../assets/icon-ratings.png'
 const AppDisplay = ({ data }) => {
     // console.log(data)
     return (
-        <div className='rounded-lg p-4 bg-white space-y-2.5 max-w-[350px]  '>
+        <Link to={`cardDetais/${data.id}`}>
+            <div className='rounded-lg p-4 bg-white space-y-2.5 max-w-[350px]  '>
 
-            <img
-                className='h-[300px] w-[300px] rounded-lg '
-                src={data.image}
-            />
+                <img
+                    className='h-[300px] w-[300px] rounded-lg '
+                    src={data.image}
+                />
 
-            <p className='font-semibold text-xl'>
-                {data.title}
-            </p>
+                <p className='font-semibold text-xl'>
+                    {data.title}
+                </p>
 
-            <div className='flex justify-between'>
-                <button className='flex items-center btn text-[#00d390] 
+                <div className='flex justify-between'>
+                    <button className='flex items-center btn text-[#00d390] 
                     bg-[#f1f5e8] font-bold '>
-                    <img className='h-4 w-4 mr-1  ' src={downloadImg} alt="" />
-                    <p>9M</p>
-                </button>
-                <button className='flex items-center btn text-[#ff8811]
+                        <img className='h-4 w-4 mr-1  ' src={downloadImg} alt="" />
+                        <p>{(data.downloads / 1000000).toFixed(2)}M</p>
+                    </button>
+                    <button className='flex items-center btn text-[#ff8811]
                     bg-[#fff0e1] font-bold '>
-                    <img className='h-4 w-4 mr-1  ' src={starImg} alt="" />
-                    <p>9M</p>
-                </button>
+                        <img className='h-4 w-4 mr-1  ' src={starImg} alt="" />
+                        <p>{data.ratingAvg}</p>
+                    </button>
+                </div>
+
+
             </div>
-
-
-        </div>
+        </Link>
     );
 };
 
