@@ -51,11 +51,12 @@ const Navbar = () => {
                         target='_blank'
                         href='https://github.com/Taurat-kibria'
                         className="btn
-                     bg-gradient-to-br from-[#632EE3] to-[#9F62F2]
-                     text-white font-bold flex items-center
-                     ">
+                        bg-gradient-to-br from-[#632EE3] to-[#9F62F2]
+                         text-white font-bold flex items-center
+                        ">
                         <img src={git} alt="" />
-                        Contribute</a>
+                        Contribute
+                    </a>
                 </div>
             </div>
         </div>
