@@ -13,7 +13,7 @@ const HomeApps = ({ data8 }) => {
                     Explore All Trending Apps on the Market developed by us
                 </p>
 
-                <div className='grid md:grid-cols-4 grid-cols-1 gap-4'>
+                <div className='grid md:grid-cols-4 grid-cols-1 gap-4 '>
                     {
                         data8.map(data => <AppDisplay
                             data={data}

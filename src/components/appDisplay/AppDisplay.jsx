@@ -24,7 +24,7 @@ import starImg from '../../assets/icon-ratings.png'
 const AppDisplay = ({ data }) => {
     // console.log(data)
     return (
-        <div className='rounded-lg p-4 bg-white space-y-2.5 '>
+        <div className='rounded-lg p-4 bg-white space-y-2.5 max-w-[350px]  '>
 
             <img
                 className='h-[300px] w-[300px] rounded-lg '
