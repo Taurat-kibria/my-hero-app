@@ -7,8 +7,8 @@ import './Navbar.css'
 
 const Navbar = () => {
     return (
-        <div className='px-5 py-[80px] '>
-            <div className="navbar bg-base-100 shadow-sm py-5 px-[40px]">
+        <div className='  '>
+            <div className="navbar bg-base-100 shadow-sm py-5 px-[50px]">
                 <div className="navbar-start">
                     <div className="dropdown">
                         <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
