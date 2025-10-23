@@ -1,7 +1,7 @@
 import React from 'react';
 import logo from '../../assets/logo.png'
 import git from '../../assets/git-logo.png'
-import { NavLink } from 'react-router';
+import { Link, NavLink } from 'react-router';
 
 import './Navbar.css'
 
@@ -27,11 +27,11 @@ const Navbar = () => {
                         </ul>
                     </div>
 
-                    <NavLink to='/' className="font-bold text-shadow-md
+                    <Link to='/' className="font-bold text-shadow-md
                      bg-gradient-to-br from-[#632EE3] to-[#9F62F2] bg-clip-text text-transparent
                      flex items-center text-xl">
                         <img className='h-10 w-10 ' src={logo} alt="" />
-                        HERO.IO</NavLink>
+                        HERO.IO</Link>
                 </div>
                 <div className="navbar-center hidden lg:flex">
                     <ul className="menu menu-horizontal px-1">

@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { createContext } from 'react';
 import { IoMdDownload } from 'react-icons/io';
 import downloadImg from '../../assets/icon-downloads.png'
 import starImg from '../../assets/icon-ratings.png'
 import { Link } from 'react-router';
+import CardDetails from '../CardDetails/CardDetails';
 
 
 
@@ -24,8 +25,16 @@ import { Link } from 'react-router';
 
 const AppDisplay = ({ data }) => {
     // console.log(data)
+    function handleDetailse(){
+        
+        const DataContext = createContext();
+        <DataContext value={data}>
+            <CardDetails></CardDetails>
+        </DataContext>
+        
+    }
     return (
-        <Link to={`cardDetais/${data.id}`}>
+        <Link onClick={handleDetailse} to={`/cardDetais/${data.id}`}>
             <div className='rounded-lg p-4 bg-white space-y-2.5 max-w-[350px]  '>
 
                 <img

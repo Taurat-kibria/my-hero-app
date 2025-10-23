@@ -31,8 +31,14 @@ const router = createBrowserRouter([
         Component: Installation
       },
       {
-        path:'cardDetais/:Id',
-        Component:CardDetails
+        path: 'cardDetais/:Id',
+        loader: ({ params }) => fetch('/data20.json')
+          .then(res => res.json())
+          // .then(data => console.log(params.Id, data))
+          // .then(data => data.map(d=>console.log(d.id)))
+          .then(datas => datas.find(data => data.id === parseInt(params.Id)))
+        ,
+        Component: CardDetails
       }
     ]
   }
