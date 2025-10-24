@@ -5,10 +5,19 @@ import { BarChart, Bar, XAxis, YAxis, Tooltip, CartesianGrid } from 'recharts';
 import downloadImg from '../../assets/icon-downloads.png'
 import ratingImg from '../../assets/icon-ratings.png'
 import reviewImg from '../../assets/icon-review.png'
+import { useState } from 'react';
+import { ToastContainer, toast } from 'react-toastify';
+// import { useContext } from 'react';
+// import { installContext } from '../root/Root.jsx';
 
 
 
 const CardDetails = () => {
+
+    const [install, setInstall] = useState(false);
+
+    // const {installed, setInstalled} = useContext(installContext)
+
     // const data = useContext(DataContext)
     // console.log(data)
     const datas = useLoaderData()
@@ -24,9 +33,18 @@ const CardDetails = () => {
     // "reviews": 3300,
     // "ratingAvg": 4.7,
     // "downloads": 240000,
-    
+
+    function handleInstallBtn() {
+        setInstall(true)
+
+        
+            toast("App installed successfully") 
+        
+
+    }
+
     return (
-        <div className='bg-[#f5f5f5] px-[50px] pt-20 '>
+        <div className='bg-[#f5f5f5] px-[50px] pt-20 pb-20 '>
             <div className='flex gap-20   '>
                 <div >
                     <img className='h-[350px] w-[350px]' src={datas.image} alt="" />
@@ -43,7 +61,7 @@ const CardDetails = () => {
                         <div className='space-y-0.5 '>
                             <img src={downloadImg} />
                             <p className='text-[#647584]'>Downloads</p>
-                            <h1 className='font-bold text-4xl '>{datas.downloads/1000000}M</h1>
+                            <h1 className='font-bold text-4xl '>{datas.downloads / 1000000}M</h1>
                         </div>
                         <div className='space-y-0.5 '>
                             <img src={ratingImg} />
@@ -53,15 +71,18 @@ const CardDetails = () => {
                         <div className='space-y-0.5 '>
                             <img src={reviewImg} />
                             <p className='text-[#647584]'>Total Reviews</p>
-                            <h1 className='font-bold text-4xl '>{datas.reviews/1000}K</h1>
+                            <h1 className='font-bold text-4xl '>{datas.reviews / 1000}K</h1>
                         </div>
                     </div>
                     <button
-                        className='btn bg-[#00d390] rounded-lg
-                         text-white  text-lg py-3 px-5 '
-                    >Install Now ({datas.size}MB)
+                        onClick={() => handleInstallBtn()}
+                        disabled={install}
+                        className={`btn bg-[#00d390] rounded-lg
+                         text-white  text-lg py-3 px-5  `}
+                    >{install ? "Installed" : `Install Now (${datas.size}MB)`}
 
                     </button>
+
                 </div>
             </div>
 
@@ -72,7 +93,7 @@ const CardDetails = () => {
 
                     </XAxis>
                     <YAxis ></YAxis>
-                    <Bar dataKey='count' fill='#ff8811' barSize={30}></Bar>
+                    <Bar dataKey='count' fill='#ff8811' barSize={60}></Bar>
 
                 </BarChart>
             </div>
@@ -80,9 +101,11 @@ const CardDetails = () => {
             <div>
                 <h1 className='font-semibold text-2xl mb-3 '>Description</h1>
                 <p className='text-xl text-[#a1abb3] '>
-                    {datas.description }
+                    {datas.description}
                 </p>
             </div>
+
+            <ToastContainer />
 
         </div>
     );
