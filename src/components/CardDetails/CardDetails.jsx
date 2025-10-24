@@ -22,7 +22,7 @@ const CardDetails = () => {
     // console.log(data)
     const datas = useLoaderData()
     const chartData = datas.ratings
-    console.log(chartData)
+    // console.log(chartData)
 
     // "image": "https://images.unsplash.com/photo-1519397150501-4d9d97b3918d",
     // "title": "SpeakEase",
@@ -37,9 +37,9 @@ const CardDetails = () => {
     function handleInstallBtn() {
         setInstall(true)
 
-        
-            toast("App installed successfully") 
-        
+
+        toast("App installed successfully")
+
 
     }
 
